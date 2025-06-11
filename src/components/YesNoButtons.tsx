@@ -24,10 +24,10 @@ const YesNoButtons = ({ onAnswer, disabled }: YesNoButtonsProps) => {
       <button
         onClick={() => handleClick(true)}
         disabled={disabled}
-        className={`horror-button px-12 py-6 text-2xl font-bold text-white rounded-lg creepy-text
+        className={`horror-button creepy-border px-12 py-6 text-2xl font-bold text-white rounded-lg creepy-text
           transition-all duration-300 ${
             clickedButton === "yes" ? "jump-scare bg-green-600" : ""
-          } ${disabled ? "opacity-50 cursor-not-allowed" : "hover:scale-110"}`}
+          } ${disabled ? "opacity-50 cursor-not-allowed" : "hover:scale-110 hover:shake"}`}
       >
         <span className="block text-4xl mb-2">✅</span>
         ДА
@@ -36,10 +36,10 @@ const YesNoButtons = ({ onAnswer, disabled }: YesNoButtonsProps) => {
       <button
         onClick={() => handleClick(false)}
         disabled={disabled}
-        className={`horror-button px-12 py-6 text-2xl font-bold text-white rounded-lg creepy-text
+        className={`horror-button creepy-border px-12 py-6 text-2xl font-bold text-white rounded-lg creepy-text
           transition-all duration-300 ${
             clickedButton === "no" ? "jump-scare bg-red-800" : ""
-          } ${disabled ? "opacity-50 cursor-not-allowed" : "hover:scale-110"}`}
+          } ${disabled ? "opacity-50 cursor-not-allowed" : "hover:scale-110 hover:shake"}`}
       >
         <span className="block text-4xl mb-2">❌</span>
         НЕТ

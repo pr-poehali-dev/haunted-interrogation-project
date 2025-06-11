@@ -94,29 +94,35 @@ const MonsterScreen = () => {
         {!gameStarted ? (
           <div className="text-center">
             <div className="monster-shadow mb-8">
-              <div className="text-9xl mb-4">👹</div>
+              <div className="text-9xl mb-4 float">👹</div>
             </div>
-            <h1 className="horror-font text-6xl mb-6 flicker text-red-500">
+            <h1 className="horror-font text-6xl mb-6 flicker text-red-500 text-glow">
               ДОБРО ПОЖАЛОВАТЬ
             </h1>
-            <p className="creepy-text text-2xl mb-8 text-gray-300">
+            <p className="creepy-text text-2xl mb-4 text-gray-300">
               Я монстр из твоих кошмаров...
+            </p>
+            <p className="text-lg mb-8 text-red-400 flicker">
+              Ответь на все мои вопросы, если сможешь... 💀
             </p>
             <button
               onClick={startGame}
-              className="horror-button px-8 py-4 text-xl font-bold text-white rounded-lg creepy-text"
+              className="horror-button px-8 py-4 text-xl font-bold text-white rounded-lg creepy-text hover:shake"
             >
               НАЧАТЬ КОШМАР
             </button>
           </div>
         ) : gameWon ? (
           <div className="text-center animate-fade-in">
-            <div className="text-9xl mb-8 animate-scale-in">✨</div>
-            <h1 className="horror-font text-6xl mb-6 text-green-400">
+            <div className="text-9xl mb-8 animate-scale-in float">✨</div>
+            <h1 className="horror-font text-6xl mb-6 text-green-400 text-glow">
               ПОБЕДА!
             </h1>
-            <p className="creepy-text text-2xl mb-8 text-gray-300">
+            <p className="creepy-text text-2xl mb-4 text-gray-300">
               Монстр исчез... Ты выжил в кошмаре!
+            </p>
+            <p className="text-lg mb-8 text-green-400">
+              Но помни... я всегда рядом в темноте 👁️
             </p>
             <div className="space-x-4">
               <button
@@ -153,8 +159,8 @@ const MonsterScreen = () => {
             </div>
 
             {/* Вопрос */}
-            <div className="horror-glow rounded-lg p-6 mb-8 bg-gray-900 bg-opacity-50">
-              <h2 className="horror-font text-4xl mb-4 text-red-400">
+            <div className="horror-glow creepy-border rounded-lg p-6 mb-8 bg-gray-900 bg-opacity-50 creepy-pulse">
+              <h2 className="horror-font text-4xl mb-4 text-red-400 text-glow">
                 ВОПРОС {currentQuestion + 1}
               </h2>
               <p className="creepy-text text-2xl text-white leading-relaxed">
