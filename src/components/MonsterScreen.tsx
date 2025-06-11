@@ -24,6 +24,7 @@ const MonsterScreen = () => {
     "waiting" | "angry" | "pleased"
   >("waiting");
   const [gameStarted, setGameStarted] = useState(false);
+  const [gameWon, setGameWon] = useState(false);
 
   useEffect(() => {
     // Случайные скримеры
@@ -57,8 +58,21 @@ const MonsterScreen = () => {
 
     setTimeout(() => {
       setMonsterMood("waiting");
-      setCurrentQuestion((prev) => (prev + 1) % horrorQuestions.length);
+      const nextQuestion = currentQuestion + 1;
+
+      if (nextQuestion >= horrorQuestions.length) {
+        setGameWon(true);
+      } else {
+        setCurrentQuestion(nextQuestion);
+      }
     }, 2000);
+  };
+
+  const resetGame = () => {
+    setCurrentQuestion(0);
+    setGameStarted(false);
+    setGameWon(false);
+    setMonsterMood("waiting");
   };
 
   const startGame = () => {
@@ -94,6 +108,24 @@ const MonsterScreen = () => {
             >
               НАЧАТЬ КОШМАР
             </button>
+          </div>
+        ) : gameWon ? (
+          <div className="text-center animate-fade-in">
+            <div className="text-9xl mb-8 animate-scale-in">✨</div>
+            <h1 className="horror-font text-6xl mb-6 text-green-400">
+              ПОБЕДА!
+            </h1>
+            <p className="creepy-text text-2xl mb-8 text-gray-300">
+              Монстр исчез... Ты выжил в кошмаре!
+            </p>
+            <div className="space-x-4">
+              <button
+                onClick={resetGame}
+                className="horror-button px-8 py-4 text-xl font-bold text-white rounded-lg creepy-text"
+              >
+                ИГРАТЬ СНОВА
+              </button>
+            </div>
           </div>
         ) : (
           <div className="text-center max-w-2xl">
